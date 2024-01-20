@@ -25,7 +25,7 @@ class Categorie
     #[Groups(['plat:read', 'plat:write'])]
     private ?string $nom = null;
 
-    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class)]
+    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class,cascade: ["persist", "remove"])]
     private Collection $plats;
 
     public function __construct()

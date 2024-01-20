@@ -33,6 +33,7 @@ class Plat
         inversedBy: 'plats',
         cascade: ["persist", "remove"],
     )]
+    #[Groups(['plat:read', 'plat:write'])]
     private ?Categorie $categorie = null;
 
 
