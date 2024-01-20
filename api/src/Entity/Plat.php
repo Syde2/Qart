@@ -5,8 +5,13 @@ namespace App\Entity;
 use App\Repository\PlatRepository;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 #[ApiResource(
+    normalizationContext: ['groups' => ['plat:read']],
+    denormalizationContext: ['groups' => ['plat:write']],
+
 )]
 #[ORM\Entity(repositoryClass: PlatRepository::class)]
 class Plat
@@ -17,13 +22,20 @@ class Plat
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['plat:read', 'plat:write'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['plat:read', 'plat:write'])]
     private ?string $imageUrl = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $categorie = null;
+    #[ORM\ManyToOne(
+        inversedBy: 'plats',
+        cascade: ["persist", "remove"],
+    )]
+    private ?Categorie $categorie = null;
+
+
 
     public function getId(): ?int
     {
@@ -54,15 +66,16 @@ class Plat
         return $this;
     }
 
-    public function getCategorie(): ?string
+    public function getCategorie(): ?Categorie
     {
         return $this->categorie;
     }
 
-    public function setCategorie(?string $categorie): static
+    public function setCategorie(?Categorie $categorie): static
     {
         $this->categorie = $categorie;
 
         return $this;
     }
+
 }
