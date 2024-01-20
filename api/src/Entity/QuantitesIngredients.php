@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\QuantitesIngredientsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: QuantitesIngredientsRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    shortName:'quantite',
+
+)]
 class QuantitesIngredients
 {
     #[ORM\Id]
@@ -15,13 +19,20 @@ class QuantitesIngredients
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(
+        cascade: ["persist", "remove"],
+    )]
+    #[Groups([ 'recette:write'])]
     private ?Ingredient $ingredient = null;
 
     #[ORM\Column]
+    #[Groups([ 'recette:write'])]
     private ?int $quantite = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(
+        cascade: ["persist", "remove"],
+
+    )]
     #[ORM\JoinColumn(nullable: false)]
     private ?Recette $recette = null;
 
