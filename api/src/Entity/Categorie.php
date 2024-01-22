@@ -8,12 +8,15 @@ use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 #[ApiResource(
 
     )]
+#[UniqueEntity('nom')]
 class Categorie
 {
     #[ORM\Id]

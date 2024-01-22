@@ -31,7 +31,7 @@ module.exports = configure(function (ctx) {
       },
       env :{
         API : ctx.dev
-        ? 'https://127.0.0.1:8001/api'
+        ? 'https://127.0.0.1:8002/api'
         : "https://prod.api.com"
 
       },

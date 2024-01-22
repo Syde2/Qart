@@ -5,6 +5,11 @@ namespace App\EventListener;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use ApiPlatform\Symfony\EventListener\EventPriorities;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+use ApiPlatform\Symfony\EventListener\ReadListener;
+
 
 class UserAgentSubscriber implements EventSubscriberInterface
 {
@@ -15,15 +20,19 @@ class UserAgentSubscriber implements EventSubscriberInterface
         $this->logger = $logger;
     }
 
-    public function onKernelRequest()
+    public function onRequestEvent(RequestEvent $event)
     {
-        $this->logger->info('I\'m logging SUPER early on the request!');
+        // $request = $event->getRequest();
+        // // dd($event->getRequest()->attributes->get('data'));
+
+        // $this->logger->info('I\'m logging After the POST Requestt!');
     }
 
     public static function getSubscribedEvents()
     {
         return [
-            RequestEvent::class => 'onKernelRequest'
+            RequestEvent::class => 'onRequestEvent',
+
         ];
     }
 }
