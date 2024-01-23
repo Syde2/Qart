@@ -1,33 +1,28 @@
 <script setup>
 import {ref} from 'vue'
 import { api } from 'src/boot/axios';
-import {useMealStore} from 'stores/mealStore'
+import {useCarteStore} from 'stores/carteStore.js'
 import { storeToRefs } from 'pinia';
 
-const mealStore = useMealStore()
-const {plat,categorie,payload } = storeToRefs(mealStore)
+const store = useCarteStore()
+const { plat } = storeToRefs(store)
 
-const stringOptions =ref([
+const categoriesDisponibles =ref([
 ])
 
 function AjouterPlat(){
-api.post('/plats', payload.value)
+  api.post('/plats', payload.value)
 }
 
 function recupererCategories(){
   api.get('/categories.json')
-  .then(res=> stringOptions.value = res.data )
+  .then(res=> categoriesDisponibles.value = res.data )
 
 }
+
 
 recupererCategories()
 
-function createValue(val,done){
-  console.log('val', val)
-  stringOptions.value.push(val)
-  categorie.value.nom = val
-done(val)
-}
 
 
 </script>
@@ -38,15 +33,12 @@ done(val)
     <q-input filled v-model="plat.imageUrl" label="Illustration (url)" />
     <q-select
         filled
-        clearable
-        v-model="categorie"
-        label="Simple select"
-        :options="stringOptions"
+        v-model= plat
+        label="Catégorie"
+        :options= categoriesDisponibles
         option-label="nom"
         option-value ="id"
         style="width: 250px"
-        use-input
-        @new-value="createValue"
 
 
       />
