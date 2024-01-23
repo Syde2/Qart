@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue'
+import {ref , computed} from 'vue'
 import { api } from 'src/boot/axios';
 import {useCarteStore} from 'stores/carteStore.js'
 import { storeToRefs } from 'pinia';
@@ -7,11 +7,14 @@ import { storeToRefs } from 'pinia';
 const store = useCarteStore()
 const { plat } = storeToRefs(store)
 
-const categoriesDisponibles =ref([
+const categoriesDisponibles =ref([{
+}
 ])
 
+
+
 function AjouterPlat(){
-  api.post('/plats', payload.value)
+  api.post('/plats', plat.value)
 }
 
 function recupererCategories(){
@@ -21,6 +24,7 @@ function recupererCategories(){
 }
 
 
+
 recupererCategories()
 
 
@@ -28,22 +32,39 @@ recupererCategories()
 </script>
 
 <template>
+  <div class="wrapper">
+
+
   <q-form @submit = AjouterPlat>
-    <q-input filled v-model="plat.nom" label="Nom" />
-    <q-input filled v-model="plat.imageUrl" label="Illustration (url)" />
+    <q-input  v-model="plat.nom" label="Nom" />
+
+    <q-input  v-model="plat.imageUrl" label="Illustration (url)" clearable
+>
+      <template v-slot:append>
+          <q-avatar v-if="plat.imageUrl">
+            <img :src=plat.imageUrl>
+          </q-avatar>
+          <q-skeleton v-else type="QAvatar" />
+        </template>
+    </q-input>
+
     <q-select
-        filled
-        v-model= plat
+        v-model= 'plat.categorie'
         label="Catégorie"
         :options= categoriesDisponibles
         option-label="nom"
         option-value ="id"
-        style="width: 250px"
+        options-cover
+        style="width: 250px">
 
-
-      />
-    <q-btn type="submit" label="ok" />
+    </q-select>
   </q-form>
 
+</div>
 
 </template>
+
+
+<style>
+
+</style>

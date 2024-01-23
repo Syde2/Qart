@@ -3,9 +3,7 @@ import { defineStore } from 'pinia';
 export const useCarteStore = defineStore('carte', {
   state: () => ({
     plat: {
-      categorie:{
-        nom:'chargement'
-      }
+
     }
 
   }),
