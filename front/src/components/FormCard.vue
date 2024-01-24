@@ -6,17 +6,13 @@ const lorem =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 <template>
   <div class="q-pa-md row items-start q-gutter-md">
 
+    <q-card  bordered  style="width: 50vw; height: 50vh;">
+      <q-card-section horizontal class="full-height" >
 
-    <q-card>
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
-      </q-card-section>
-
-      <q-separator dark inset />
-
-      <q-card-section>
-        <slot></slot> <!-- slot outlet -->
+        <q-img class="col-4" src="repas.jpg" />
+        <q-card-section class=" col-8 ">
+          <slot />
+        </q-card-section>
 
       </q-card-section>
     </q-card>
@@ -27,9 +23,12 @@ const lorem =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 
 
 <style  scoped>
-.my-card{
-  max-width: 450px;
+
+.cardStyle{
+  width: 50vw;
+  height: 50vh;
 
 }
+
 
 </style>
