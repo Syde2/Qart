@@ -41,7 +41,7 @@ recupererCategories()
           <q-icon name="restaurant" />
         </template>
       </q-input>
-      <q-select v-model='plat.categorie'  label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
+      <q-select required v-model='plat.categorie' label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
         option-value="id" options-cover class="q-pa-sm" >
         <template v-slot:prepend>
           <q-icon name="menu_book" />

@@ -7,6 +7,7 @@ import FormCard from 'src/components/FormCard.vue';
 
 <template>
   <q-page class="flex flex-center column">
+
     <FormCard>
       <FormAjoutPlat class="full-height "/>
     </FormCard>
