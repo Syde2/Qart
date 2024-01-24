@@ -11,7 +11,7 @@ const lorem =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 
         <q-img class="col-4" src="repas.jpg" />
         <q-card-section class=" col-8 ">
-          <slot />
+          <slot  />
         </q-card-section>
 
       </q-card-section>
