@@ -9,19 +9,15 @@ const alert =ref(false)
 <template>
 
 <q-page class="flex flex-center">
-
   <q-dialog square="false" full-width  v-model="alert">
       <div class="flex flex-center">
-
         <FormCard>
-      <FormAjoutPlat />
-    </FormCard>
-
+          <FormAjoutPlat />
+        </FormCard>
       </div>
+  </q-dialog>
 
-    </q-dialog>
-
-    <q-btn @click="alert = !alert"  label="toggle"/>
+    <q-btn @click="alert = !alert"  label="Ajouter un plat"/>
 
 
 

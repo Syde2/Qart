@@ -7,7 +7,7 @@ module.exports = configure(function (ctx) {
 
 
     boot: [
-
+      'vcalendar',
       'axios',
     ],
 

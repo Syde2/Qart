@@ -1,10 +1,20 @@
 <script setup>
+import DatePicker from 'components/DatePicker.vue'
 </script>
 
 <template>
-  <q-page>
-    Calendrier
+<q-page class="flex flex-center">
+  <q-card class="container" style="height: 80vh; width: 80vw;" >
+    <q-card-section horizontal  >
+    <q-img class="col-4" src="repas_2.jpg" />
+    <div class=" col-8 ">
+       <DatePicker />
+    </div>
+  </q-card-section>
+
+  </q-card>
+
   </q-page>
-
-
 </template>
+
+

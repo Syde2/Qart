@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <q-page>
+<q-page class="flex flex-center">
     Reglages
   </q-page>
 </template>
