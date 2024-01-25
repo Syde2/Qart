@@ -6,7 +6,7 @@ const lorem =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 <template>
   <div class="q-pa-md row items-start q-gutter-md">
 
-    <q-card  bordered  class="container" style="width: 50vw; height: 50vh;">
+    <q-card  bordered  class="container" style="width: 50vw; height: 60vh;">
       <q-card-section horizontal class="full-height" >
 
         <q-img class="col-4" src="repas.jpg" />

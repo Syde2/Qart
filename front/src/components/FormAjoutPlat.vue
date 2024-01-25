@@ -32,10 +32,10 @@ recupererCategories()
 </script>
 
 <template>
-  <div class="wrapper">
+  <div>
     <div class="text-h6"> Ajouter un Plat </div>
 
-    <q-form @submit=AjouterPlat class="flex column fit justify-center ">
+    <q-form @submit=AjouterPlat class="flex column justify-center q-gutter-sm ">
       <q-input class="q-pa-sm"  v-model="plat.nom" required label=" Nom de la recette" >
         <template v-slot:prepend>
           <q-icon name="restaurant" />
@@ -59,9 +59,7 @@ recupererCategories()
         </template>
       </q-input>
 
-
-
-      <q-btn type="submit" label="Ajouter" flat  class="q-my-lg" />
+      <q-btn type="submit"  color="secondary" rounded label="Ajouter" class="q-ma-lg  q-py-md"  />
 
 
     </q-form>
