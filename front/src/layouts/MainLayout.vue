@@ -3,7 +3,7 @@
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header  class="bg-grey-9">
+    <q-header  class="bg-transparent">
       <q-toolbar>
 
 

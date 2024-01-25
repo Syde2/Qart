@@ -32,22 +32,24 @@ recupererCategories()
 </script>
 
 <template>
-  <div>
-    <div class="text-h6"> Ajouter un Plat </div>
+  <div class="fit">
+    <div class="text-h5 text-center text-white"> Ajouter un Plat </div>
 
-    <q-form @submit=AjouterPlat class="flex column justify-center q-gutter-sm ">
-      <q-input class="q-pa-sm"  v-model="plat.nom" required label=" Nom de la recette" >
+    <q-form @submit=AjouterPlat class="q-pa-md flex column q-gutter-md ">
+      <q-input item-aligned  v-model="plat.nom" required label=" Nom de la recette" >
         <template v-slot:prepend>
           <q-icon name="restaurant" />
         </template>
       </q-input>
-      <q-select required v-model='plat.categorie' label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
-        option-value="id" options-cover class="q-pa-sm" >
+      <q-select item-aligned v-model='plat.categorie' label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
+        option-value="id" options-cover  popup-content-class="popupStyle" >
+
         <template v-slot:prepend>
           <q-icon name="menu_book" />
         </template>
+
       </q-select>
-      <q-input class="q-pa-sm" v-model="plat.imageUrl" label="Ajouter une image ? " clearable>
+      <q-input item-aligned v-model="plat.imageUrl" label="Ajouter une image ? " clearable>
         <template v-slot:prepend>
           <q-icon name="image" />
         </template>
@@ -55,18 +57,22 @@ recupererCategories()
           <q-avatar v-if="plat.imageUrl">
             <img :src=plat.imageUrl>
           </q-avatar>
-          <q-skeleton v-else type="QAvatar" />
+          <q-skeleton v-else type="QAvatar"  animation="none"/>
         </template>
       </q-input>
 
-      <q-btn type="submit"  color="secondary" rounded label="Ajouter" class="q-ma-lg  q-py-md"  />
+      <q-btn type="submit" color="accent"  rounded label="Ajouter" class="q-py-md"  />
 
 
     </q-form>
 
-
   </div>
 </template>
 
-
-<style></style>
+<style >
+.popupStyle{
+  background: rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+}
+</style>
