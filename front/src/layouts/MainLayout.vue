@@ -12,9 +12,9 @@
           </q-btn>
         </q-toolbar-title>
         <q-tabs dense inline-label>
-          <q-route-tab to="/plats" label="Plats" icon="menu_book" />
-          <q-route-tab to="/page2" label="Page Two" />
-          <q-route-tab to="/page3" label="Page Three" />
+          <q-route-tab to="/plats" label="Plats" no-caps icon="menu_book" />
+          <q-route-tab to="/calendrier" label="Calendrier" no-caps icon="calendar_month" />
+          <q-route-tab to="/reglages" label="Reglages" no-caps  icon="settings"/>
       </q-tabs>
       <q-space />
       </q-toolbar>

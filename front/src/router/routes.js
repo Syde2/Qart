@@ -5,7 +5,9 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: '/plats', component: () => import('pages/PagePlats.vue') }
+      { path: '/plats', component: () => import('pages/PagePlats.vue') },
+      { path: '/calendrier', component: () => import('pages/PageCalendrier.vue') },
+      { path: '/reglages', component: () => import('pages/PageReglages.vue') }
     ]
   },
 
