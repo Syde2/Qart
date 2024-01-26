@@ -4,7 +4,7 @@ import DatePicker from 'components/DatePicker.vue'
 
 <template>
 <q-page class="flex flex-center">
-  <q-card class="container" style="height: 80vh; width: 80vw;" >
+  <q-card class="container"  >
     <q-card-section horizontal  >
     <q-img class="col-4" src="repas_2.jpg" />
     <div class=" col-8 ">

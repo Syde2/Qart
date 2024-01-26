@@ -9,7 +9,8 @@ const dateSelectionnee = ref(new Date())
 <template>
   <VDatePicker
     v-model="dateSelectionnee"
-    color="indigo"
+    transparent
+    color="primary"
     nav-visibility="click"
     ref="datePicker"
     view="weekly"
@@ -23,23 +24,25 @@ const dateSelectionnee = ref(new Date())
     <p class="text-h5 my-font text-primary"> Semaine {{ numeroSemaine }} </p>
   </template>
 
-  <template #header-prev-button	>
-  </template>
 
-  <template #nav-prev-button	>
-  </template>
-
-  <template #header-next-button	>
-  </template>
-
-  <template #nav-next-button	>
-  </template>
 
   </VDatePicker>
 
 
 </template>
 
-<style>
+<style lang="scss">
+.vc-prev, .vc-next{
+  background-color: transparent;
+}
+
+.vc-title{
+  background-color: transparent;
+}
+
+.vc-primary {
+  --vc-accent-600: #6295ae;
+}
+
 
 </style>
