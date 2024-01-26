@@ -1,15 +1,19 @@
 <script setup>
 import DatePicker from 'components/DatePicker.vue'
+import CalendarList from 'src/components/CalendarList.vue';
 </script>
 
 <template>
 <q-page class="flex flex-center">
-  <q-card class="container"  >
+  <q-card class="container-large"  >
     <q-card-section horizontal  >
     <q-img class="col-4" src="repas_2.jpg" />
-    <div class=" col-8 ">
+    <q-card-section class=" col-8 ">
        <DatePicker />
-    </div>
+       <CalendarList />
+
+    </q-card-section>
+
   </q-card-section>
 
   </q-card>
