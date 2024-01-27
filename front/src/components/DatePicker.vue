@@ -17,7 +17,6 @@ const dateSelectionnee = ref(new Date())
     borderless
     expanded
     is-required
-    style="border-radius: 0  20px 20px 0 ;"
   >
 
   <template #header-title	>

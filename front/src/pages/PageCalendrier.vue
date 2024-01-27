@@ -5,14 +5,13 @@ import CalendarList from 'src/components/CalendarList.vue';
 
 <template>
 <q-page class="flex flex-center">
-  <q-card class="container-large"  >
+  <q-card class="container-large">
     <q-card-section horizontal  >
     <q-img class="col-4" src="repas_2.jpg" />
-    <q-card-section class=" col-8 ">
+    <div class=" col-8">
        <DatePicker />
        <CalendarList />
-
-    </q-card-section>
+    </div>
 
   </q-card-section>
 
