@@ -1,6 +1,20 @@
 <script setup>
+import {ref} from 'vue'
 import DatePicker from 'components/DatePicker.vue'
 import CalendarList from 'src/components/CalendarList.vue';
+import { api } from 'src/boot/axios';
+
+const plats = ref()
+
+
+const recupererPlats= ()=>{
+  api.get('/plats')
+  .then(res => plats.value = res.data)
+}
+
+recupererPlats()
+
+
 </script>
 
 <template>

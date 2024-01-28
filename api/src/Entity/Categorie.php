@@ -33,6 +33,7 @@ class Categorie
     private Collection $plats;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['plat:read'])]
     private ?string $illustration = null;
 
     public function __construct()
