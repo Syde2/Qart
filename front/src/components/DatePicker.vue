@@ -20,7 +20,7 @@ const dateSelectionnee = ref(new Date())
   >
 
   <template #header-title	>
-    <p class="text-h5 my-font text-primary"> Semaine {{ numeroSemaine }} </p>
+    <p class="text-h5 my-font text-primary"> Semaine </p>
   </template>
 
 

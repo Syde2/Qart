@@ -15,6 +15,10 @@ const mealList = [
 }
 
 ]
+const splitterModel = 50
+const props = defineProps({
+  plat : Object
+})
 </script>
 
 <template>
@@ -25,7 +29,7 @@ const mealList = [
     </template>
 
     <template v-slot:after>
-      <CalendarItemAfter />
+      <CalendarItemAfter :plat="props.plat" />
     </template>
 
   </q-splitter>

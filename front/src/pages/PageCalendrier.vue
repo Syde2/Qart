@@ -4,11 +4,11 @@ import DatePicker from 'components/DatePicker.vue'
 import CalendarList from 'src/components/CalendarList.vue';
 import { api } from 'src/boot/axios';
 
-const plats = ref()
+const plats = ref([])
 
 
 const recupererPlats= ()=>{
-  api.get('/plats')
+  api.get('/plats.json')
   .then(res => plats.value = res.data)
 }
 
@@ -24,7 +24,7 @@ recupererPlats()
     <q-img class="col-4" src="repas_2.jpg" />
     <div class=" col-8">
        <DatePicker />
-       <CalendarList />
+       <CalendarList :plat="plats[1]"  />
     </div>
 
   </q-card-section>
