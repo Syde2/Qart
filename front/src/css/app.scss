@@ -24,3 +24,16 @@ body{
   border: 8px solid rgba(255, 255, 255, .2);
 
 }
+
+.background-lunch {
+  background-image: url('/background_3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.background-dinner {
+  background-image: url('/background_4.jpg');
+  background-position-y: 75%;
+  background-repeat: no-repeat;
+}

@@ -4,7 +4,7 @@ const categorie = "Test"
 </script>
 
 <template>
-  <div class="flex row items-center">
+  <div class="flex row items-center q-pa-md">
 
     <div class="col-2 text-dark vertical-top">
       <q-icon name='sym_o_nights_stay' />
@@ -28,18 +28,3 @@ const categorie = "Test"
 
   </div>
 </template>
-
-<style>
-.background-lunch {
-  background-image: url('/background_3.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.background-dinner {
-  background-image: url('/background_4.jpg');
-  background-position-y: 75%;
-  background-repeat: no-repeat;
-}
-
-</style>

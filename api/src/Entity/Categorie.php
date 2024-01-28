@@ -6,6 +6,7 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Metadata\ApiResource;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -30,6 +31,9 @@ class Categorie
 
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class,cascade: ["persist", "remove"])]
     private Collection $plats;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $illustration = null;
 
     public function __construct()
     {
@@ -79,6 +83,18 @@ class Categorie
                 $plat->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(?string $illustration): static
+    {
+        $this->illustration = $illustration;
 
         return $this;
     }
