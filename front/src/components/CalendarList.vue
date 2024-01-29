@@ -22,28 +22,31 @@ const mealList = [
 ]
 const splitterModel = 50
 
+function addMeal(period ){
+  console.log("MEAL", period)
+}
+
 </script>
 
 <template>
 <div class="q-mx-md">
   <q-splitter v-model="splitterModel" horizontal>
     <template v-slot:before>
-      <CalendarItem>
+      <CalendarItem :plat=plats[1] @add="()=>addMeal('midi')"  >
         <template #header>
           <q-icon name='wb_twilight' />
           <p class="text-h6 "> Midi </p>
         </template>
-
       </CalendarItem>
     </template>
 
     <template v-slot:after>
-      <CalendarItem>
+      <CalendarItem  @add="()=>addMeal('soir') ">
         <template #header>
           <q-icon name='sym_o_nights_stay' />
           <p class="text-h6 ">Soir </p>
         </template>
-      </CalendarItem>
+      </CalendarItem >
     </template>
 
   </q-splitter>

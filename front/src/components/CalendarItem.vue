@@ -3,7 +3,14 @@ import { ref } from 'vue'
 import { usePlatJourStore } from 'src/stores/platJour';
 import { storeToRefs } from 'pinia';
 
-const { plats } = storeToRefs(usePlatJourStore())
+
+const props = defineProps({
+  plat : {
+    type:Object
+  }
+})
+
+const emit =defineEmits(['add'])
 
 
 </script>
@@ -14,11 +21,7 @@ const { plats } = storeToRefs(usePlatJourStore())
     <div class="col-2 text-dark vertical-top">
       <slot name="header" ></slot>
     </div>
-
-
-
-
-    <q-slide-item v-if="plats.length > 0" class="col-10 shadow-4" @right="e => onRight(e, each.id)"
+    <q-slide-item v-if="props.plat" class="col-10 shadow-4" @right="e => onRight(e, each.id)"
       right-color="negative" style="border: 1px solid rgb(173, 170, 170); border-radius: 5px;">
       <template v-slot:right>
         <q-icon name="delete" />
@@ -26,13 +29,16 @@ const { plats } = storeToRefs(usePlatJourStore())
       </template>
       <div>
         <div class="q-pa-lg background flex row  justify-between"
-          :style="{ backgroundImage: 'url(' + encodeURI(plats[1].categorie.illustration) + ')' }">
-          <q-chip class="bg-secondary text-primary text-capitalize"> {{ plats[1].nom }} </q-chip>
-          <q-chip class="self-end bg-accent text-white text-capitalize"> {{ plats[1].categorie.nom }} </q-chip>
+          :style="{ backgroundImage: 'url(' + encodeURI(props.plat.categorie.illustration) + ')' }">
+          <q-chip class="bg-secondary text-primary text-capitalize"> {{props.plat.nom }} </q-chip>
+          <q-chip class="self-end bg-accent text-white text-capitalize"> {{props.plat.categorie.nom }} </q-chip>
         </div>
 
       </div>
     </q-slide-item>
+    <div v-else class="flex flex-center full-width">
+      <q-btn fab  icon="add"  color="accent" @click="emit('add')"/>
+    </div>
 
   </div>
 </template>
