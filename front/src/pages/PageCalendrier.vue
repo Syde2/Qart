@@ -2,9 +2,12 @@
 import {ref} from 'vue'
 import DatePicker from 'components/DatePicker.vue'
 import CalendarList from 'src/components/CalendarList.vue';
+import { usePlatJourStore } from 'src/stores/platJour';
 import { api } from 'src/boot/axios';
+import { storeToRefs } from 'pinia';
 
-const plats = ref([])
+const store = usePlatJourStore()
+const {plats} = storeToRefs(store)
 
 
 const recupererPlats= ()=>{
@@ -24,7 +27,7 @@ recupererPlats()
     <q-img class="col-4" src="repas_2.jpg" />
     <div class=" col-8">
        <DatePicker />
-       <CalendarList :plat="plats[1]"  />
+       <CalendarList />
     </div>
 
   </q-card-section>

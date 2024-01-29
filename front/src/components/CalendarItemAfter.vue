@@ -1,20 +1,14 @@
 <script setup>
-import {ref} from 'vue'
-const repas = "test Nom Repas"
-const categorie = "Test"
+import { ref } from 'vue'
+import { usePlatJourStore } from 'src/stores/platJour';
+import { storeToRefs } from 'pinia';
 
-const props = defineProps({
-  plat : Object
-})
+const { plats } = storeToRefs(usePlatJourStore())
 
-const illustration =ref( props.plat?.categorie?.illustration)
-// const illustration = '/background_3.jpg'
 
 </script>
 
 <template>
-    {{ props.plat }}
-
   <div class="flex row items-center q-pa-md">
 
     <div class="col-2 text-dark vertical-top">
@@ -22,16 +16,19 @@ const illustration =ref( props.plat?.categorie?.illustration)
       <p class="text-h6 ">Soir </p>
     </div>
 
-    <q-slide-item class="col-10 shadow-4"  @right="e => onRight(e, each.id)" right-color="negative"
-      style="border: 1px solid rgb(173, 170, 170); border-radius: 5px;">
+
+
+    <q-slide-item v-if="plats.length > 0" class="col-10 shadow-4" @right="e => onRight(e, each.id)"
+      right-color="negative" style="border: 1px solid rgb(173, 170, 170); border-radius: 5px;">
       <template v-slot:right>
         <q-icon name="delete" />
         <span class="text-overline"> Supprimer </span>
       </template>
       <div>
-        <div class="q-pa-md background flex column items-baseline" :style="{ backgroundImage : 'url(' + encodeURI(illustration) + ')' }">
-          <p class=" text-h6 text-capitalize"> {{ props?.plat?.nom }} </p>
-          <q-chip class="self-end"> {{ props.plat?.categorie?.nom }} </q-chip>
+        <div class="q-pa-lg background flex row  justify-between"
+          :style="{ backgroundImage: 'url(' + encodeURI(plats[1].categorie.illustration) + ')' }">
+          <q-chip class="bg-secondary text-primary text-capitalize"> {{ plats[1].nom }} </q-chip>
+          <q-chip class="self-end bg-accent text-white text-capitalize"> {{ plats[1].categorie.nom }} </q-chip>
         </div>
 
       </div>
@@ -43,15 +40,11 @@ const illustration =ref( props.plat?.categorie?.illustration)
 
 
 <style scoped lang="scss">
-
 .background {
-
-
-  background-position-y: 75%;
+  background-position: bottom;
   background-repeat: no-repeat;
+  background-size: cover;
 }
-
-
 </style>
 
 
