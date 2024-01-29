@@ -1,23 +1,6 @@
 <script setup>
-import {ref} from 'vue'
 import DatePicker from 'components/DatePicker.vue'
 import CalendarList from 'src/components/CalendarList.vue';
-import { usePlatJourStore } from 'src/stores/platJour';
-import { api } from 'src/boot/axios';
-import { storeToRefs } from 'pinia';
-
-const store = usePlatJourStore()
-const {plats} = storeToRefs(store)
-
-
-const recupererPlats= ()=>{
-  api.get('/plats.json')
-  .then(res => plats.value = res.data)
-}
-
-recupererPlats()
-
-
 </script>
 
 <template>

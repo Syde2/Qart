@@ -15,7 +15,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 #[ApiResource(
-
     )]
 #[UniqueEntity('nom')]
 class Categorie

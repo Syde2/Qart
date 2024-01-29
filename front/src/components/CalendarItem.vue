@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import { usePlatJourStore } from 'src/stores/platJour';
-import { storeToRefs } from 'pinia';
 
 
 const props = defineProps({

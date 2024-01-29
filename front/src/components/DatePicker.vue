@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import {useCarteStore} from '../stores/carteStore.js'
+import { storeToRefs } from 'pinia';
+
 
 const dateSelectionnee = ref(new Date())
+const { repas } = storeToRefs(useCarteStore)
 
 
 </script>
