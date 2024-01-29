@@ -1,6 +1,11 @@
 <script setup>
-import CalendarItemBefore from './CalendarItemBefore.vue';
-import CalendarItemAfter from './CalendarItemAfter.vue';
+import { ref } from 'vue'
+import { usePlatJourStore } from 'src/stores/platJour';
+import { storeToRefs } from 'pinia';
+import CalendarItem from './CalendarItem.vue'
+
+const { plats } = storeToRefs(usePlatJourStore())
+
 
 const mealList = [
   {
@@ -23,11 +28,22 @@ const splitterModel = 50
 <div class="q-mx-md">
   <q-splitter v-model="splitterModel" horizontal>
     <template v-slot:before>
-      <CalendarItemBefore />
+      <CalendarItem>
+        <template #header>
+          <q-icon name='wb_twilight' />
+          <p class="text-h6 "> Midi </p>
+        </template>
+
+      </CalendarItem>
     </template>
 
     <template v-slot:after>
-      <CalendarItemAfter />
+      <CalendarItem>
+        <template #header>
+          <q-icon name='sym_o_nights_stay' />
+          <p class="text-h6 ">Soir </p>
+        </template>
+      </CalendarItem>
     </template>
 
   </q-splitter>
