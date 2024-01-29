@@ -6,19 +6,19 @@ import CalendarItem from './CalendarItem.vue'
 import FormAjoutItem from './FormAjoutItem.vue';
 import { api } from 'src/boot/axios';
 
-const { repas } = storeToRefs(useCarteStore() )
+const { plats, nouveauRepas } = storeToRefs(useCarteStore() )
 const periode = ref('')
 const splitterModel = 50
 const toggle = ref(false)
 function addMeal(period ){
-  console.log("MEAL", period)
   periode.value = period
+  nouveauRepas.value.periode =period
   toggle.value = true
 }
 
 function recupererPlats(){
   api.get('/calendrier.json')
-  .then((res)=> repas.value = res.value )
+  .then((res)=> plats.value = res.value )
 }
 recupererPlats()
 
@@ -29,7 +29,7 @@ recupererPlats()
   <q-splitter v-model="splitterModel" horizontal>
 
     <template v-slot:before>
-      <CalendarItem :plat=repas[1] @add="()=>addMeal('midi')"  >
+      <CalendarItem :plat=plats[1] @add="()=>addMeal('midi')"  >
         <template #header>
           <q-icon name='wb_twilight' />
           <p class="text-h6 "> Midi </p>
