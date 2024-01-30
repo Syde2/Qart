@@ -10,10 +10,11 @@ const repasDisponibles = ref()
 
 
 function recupererPlats() {
-  api.get('/plats.json')
-    .then(res => repasDisponibles.value = res.data)
+  api.get('/plats')
+    .then(res => repasDisponibles.value = res.data["hydra:member"])
 
 }
+
 function ajouterRepas() {
   api.post('/calendriers', nouveauRepas.value)
 }

@@ -21,21 +21,22 @@ class Plat
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['plat:read', 'plat:write', 'calendrier:read', 'calendrier:write'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['plat:read', 'plat:write'])]
+    #[Groups(['plat:read', 'plat:write', 'calendrier:read', 'calendrier:write'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['plat:read', 'plat:write'])]
+    #[Groups(['plat:read', 'plat:write', 'calendrier:read', 'calendrier:write'])]
     private ?string $imageUrl = null;
 
     #[ORM\ManyToOne(
         inversedBy: 'plats',
         cascade: ["persist", "remove"],
     )]
-    #[Groups(['plat:read', 'plat:write'])]
+    #[Groups(['plat:read', 'plat:write', 'calendrier:read', 'calendrier:write'])]
     private ?Categorie $categorie = null;
 
     #[ORM\OneToMany(mappedBy: 'plat', targetEntity: Calendrier::class)]

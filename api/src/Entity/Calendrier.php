@@ -6,8 +6,13 @@ use App\Repository\CalendrierRepository;
 use ApiPlatform\Metadata\ApiResource;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 #[ApiResource(
+    normalizationContext: ['groups' => ['calendrier:read']],
+    denormalizationContext: ['groups' => ['calendrier:write']],
+
     )]
 #[ORM\Entity(repositoryClass: CalendrierRepository::class)]
 class Calendrier
@@ -15,15 +20,19 @@ class Calendrier
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['calendrier:read', 'calendrier:write'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
+    #[Groups(['calendrier:read', 'calendrier:write'])]
     private ?\DateTimeImmutable $date = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['calendrier:read', 'calendrier:write'])]
     private ?string $periode = null;
 
     #[ORM\ManyToOne(inversedBy: 'calendriers')]
+    #[Groups(['calendrier:read', 'calendrier:write'])]
     private ?Plat $plat = null;
 
     public function getId(): ?int
