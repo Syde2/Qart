@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-
-
 const props = defineProps({
   plat : {
     type:Object
@@ -14,9 +12,9 @@ const emit =defineEmits(['add'])
 </script>
 
 <template>
-  <div class="flex row items-center q-pa-md">
+  <div class="q-pa-md">
 
-    <div class="col-2 text-dark vertical-top">
+    <div class="col-2 text-dark  ">
       <slot name="header" ></slot>
     </div>
     <q-slide-item v-if="props.plat" class="col-10 shadow-4" @right="e => onRight(e, each.id)"
