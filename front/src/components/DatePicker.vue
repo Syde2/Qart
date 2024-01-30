@@ -15,7 +15,6 @@ watch(dateSelectionnee, ()=>{
 </script>
 
 <template>
-  {{ dateSelectionnee }}
   <VDatePicker
     v-model="dateSelectionnee"
     transparent
@@ -35,8 +34,6 @@ watch(dateSelectionnee, ()=>{
 
 
   </VDatePicker>
-
-
 </template>
 
 <style lang="scss">

@@ -31,8 +31,10 @@ recupererPlats()
     <template v-slot:before>
       <CalendarItem :plat=plats[1] @add="()=>addMeal('midi')"  >
         <template #header>
-          <q-icon name='wb_twilight' />
-          <p class="text-h6 "> Midi </p>
+          <div class="flex  flex-center q-gutter-x-sm">
+            <q-icon size="sm" name='wb_twilight' />
+            <span class="text-h6 "> Midi </span>
+          </div>
         </template>
       </CalendarItem>
     </template>
@@ -40,8 +42,10 @@ recupererPlats()
     <template v-slot:after>
       <CalendarItem  @add="()=>addMeal('soir') ">
         <template #header>
-          <q-icon name='sym_o_nights_stay' />
+          <div class="flex  flex-center q-gutter-x-sm">
+          <q-icon size="sm" name='sym_o_nights_stay' />
           <p class="text-h6 ">Soir </p>
+          </div>
         </template>
       </CalendarItem >
     </template>
