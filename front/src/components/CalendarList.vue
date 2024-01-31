@@ -39,7 +39,7 @@ recupererPlats()
   <q-splitter v-model="splitterModel"  horizontal>
 
     <template v-slot:before>
-      <CalendarItem plat="midi"  @add="()=>addMeal('midi')"  >
+      <CalendarItem :plat="midi[0]?.plat"  @add="()=>addMeal('midi')"  >
         <template #header>
           <div class="flex  flex-center q-gutter-x-sm">
             <q-icon size="sm" name='wb_twilight' />
@@ -50,7 +50,7 @@ recupererPlats()
     </template>
 
     <template v-slot:after>
-      <CalendarItem  plat="soir" @add="()=>addMeal('soir') ">
+      <CalendarItem  :plat="soir[0]?.plat" @add="()=>addMeal('soir') ">
         <template #header>
           <div class="flex  flex-center q-gutter-x-sm">
             <q-icon size="sm" name='sym_o_nights_stay' />
