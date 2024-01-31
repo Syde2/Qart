@@ -23,11 +23,10 @@ function recupererPlats(){
    .then(res=> {
     plats.value = res.data
    } )
-
-
+   console.log("recuperer Plats", plats.value.length)
 
 }
-recupererPlats()
+ recupererPlats()
 
 
 
@@ -64,7 +63,7 @@ recupererPlats()
 
   <q-dialog v-model="toggle">
     <div class="container">
-      <FormAjoutItem />
+      <FormAjoutItem  @success="()=>{ toggle = false ; recupererPlats()} "/>
     </div>
   </q-dialog>
 </div>

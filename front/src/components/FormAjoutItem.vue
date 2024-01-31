@@ -3,10 +3,15 @@ import { ref, computed } from 'vue'
 import { api } from 'src/boot/axios';
 import { useCarteStore } from 'stores/carteStore.js'
 import { storeToRefs } from 'pinia';
+import { useQuasar } from 'quasar'
+
+const emit = defineEmits(['success'])
 
 const store = useCarteStore()
 const {nouveauRepas} = storeToRefs(store)
 const repasDisponibles = ref()
+const $q = useQuasar()
+
 
 
 function recupererPlats() {
@@ -18,6 +23,11 @@ function recupererPlats() {
 function ajouterRepas() {
   nouveauRepas.value.date = store.dateSelectionnee
   api.post('/calendriers', nouveauRepas.value)
+  .catch(err => {
+    $q.notify(err)
+    return
+  })
+  .then( emit("success") )
 }
 
 
