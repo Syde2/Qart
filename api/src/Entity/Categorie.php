@@ -25,14 +25,14 @@ class Categorie
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['plat:read', 'plat:write'])]
+    #[Groups(['plat:read', 'plat:write', 'calendrier:read', 'calendrier:write'])]
     private ?string $nom = null;
 
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class,cascade: ["persist", "remove"])]
     private Collection $plats;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    #[Groups(['plat:read'])]
+    #[Groups(['plat:read', 'plat:write', 'calendrier:read', 'calendrier:write'])]
     private ?string $illustration = null;
 
     public function __construct()

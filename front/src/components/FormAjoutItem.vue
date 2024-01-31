@@ -16,8 +16,10 @@ function recupererPlats() {
 }
 
 function ajouterRepas() {
+  nouveauRepas.value.date = store.dateSelectionnee
   api.post('/calendriers', nouveauRepas.value)
 }
+
 
 recupererPlats()
 </script>

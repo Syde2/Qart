@@ -1,22 +1,15 @@
 <script setup>
-import { ref, watch } from 'vue';
 import {useCarteStore} from '../stores/carteStore.js'
 import { storeToRefs } from 'pinia';
 
-
-const dateSelectionnee = ref(new Date())
-const { nouveauRepas } = storeToRefs(useCarteStore())
-
-watch(dateSelectionnee, ()=>{
-  nouveauRepas.value.date = dateSelectionnee.value
-}, {immediate:true} )
-
-
+const store = useCarteStore()
+const { dateSelectionnee, nouveauRepas } = storeToRefs(store)
 </script>
 
 <template>
   <VDatePicker
     v-model="dateSelectionnee"
+    mode="date"
     transparent
     color="primary"
     nav-visibility="click"
@@ -30,9 +23,6 @@ watch(dateSelectionnee, ()=>{
   <template #header-title	>
     <p class="text-h5 my-font text-primary"> Semaine </p>
   </template>
-
-
-
   </VDatePicker>
 </template>
 
