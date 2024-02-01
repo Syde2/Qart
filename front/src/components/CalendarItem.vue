@@ -1,18 +1,17 @@
 <script setup>
+
 const props = defineProps({
   plat : {
     type:Object
   }
 })
-
 const emit =defineEmits(['add'])
-
 
 
 </script>
 
 <template>
-  <div class="q-pa-md">
+<div class="q-pa-md">
 
     <div class="col-2 text-dark  ">
       <slot name="header" ></slot>
@@ -36,7 +35,7 @@ const emit =defineEmits(['add'])
       <q-btn fab  icon="add"  color="accent" @click="emit('add')"/>
     </div>
 
-  </div>
+</div>
 </template>
 
 

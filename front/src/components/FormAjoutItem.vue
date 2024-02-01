@@ -8,7 +8,7 @@ import { useQuasar } from 'quasar'
 const emit = defineEmits(['success'])
 
 const store = useCarteStore()
-const {nouveauRepas} = storeToRefs(store)
+const {nouveauRepas, plats } = storeToRefs(store)
 const repasDisponibles = ref()
 const $q = useQuasar()
 
@@ -27,7 +27,7 @@ function ajouterRepas() {
     $q.notify(err)
     return
   })
-  .then( emit("success") )
+  .then(() => emit("success") )
 }
 
 
