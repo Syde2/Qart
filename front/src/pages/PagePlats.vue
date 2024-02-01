@@ -9,7 +9,7 @@ const alert =ref(false)
 <template>
 
 <q-page class="flex flex-center">
-  <q-dialog square="false" full-width  v-model="alert">
+  <q-dialog   v-model="alert">
       <div class="flex flex-center">
         <FormCard>
           <FormAjoutPlat />

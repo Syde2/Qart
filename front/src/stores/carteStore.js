@@ -11,6 +11,9 @@ export const useCarteStore = defineStore("carte", {
         periode: "",
         plat: "",
       },
+      nouveauPlat : {
+
+      }
     };
   },
 

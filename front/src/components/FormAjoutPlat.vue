@@ -5,7 +5,7 @@ import { useCarteStore } from 'stores/carteStore.js'
 import { storeToRefs } from 'pinia';
 
 const store = useCarteStore()
-const { plat } = storeToRefs(store)
+const { nouveauPlat } = storeToRefs(store)
 
 const categoriesDisponibles = ref([{
 }
@@ -14,7 +14,7 @@ const categoriesDisponibles = ref([{
 
 
 function AjouterPlat() {
-  api.post('/plats', plat.value)
+  api.post('/plats', nouveauPlat.value)
 }
 
 function recupererCategories() {
@@ -36,12 +36,13 @@ recupererCategories()
     <div class="text-h5 text-center text-white"> Ajouter un Plat </div>
 
     <q-form @submit=AjouterPlat class="q-pa-md flex column q-gutter-md ">
-      <q-input item-aligned  v-model="plat.nom" required label=" Nom de la recette" >
+
+      <q-input item-aligned  v-model="nouveauPlat.nom" required label=" Nom de la recette" >
         <template v-slot:prepend>
           <q-icon name="restaurant" />
         </template>
       </q-input>
-      <q-select item-aligned v-model='plat.categorie' label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
+      <q-select item-aligned v-model='nouveauPlat.categorie' label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
         option-value="id" options-cover  popup-content-class="popupStyle" >
 
         <template v-slot:prepend>
@@ -49,13 +50,14 @@ recupererCategories()
         </template>
 
       </q-select>
-      <q-input item-aligned v-model="plat.imageUrl" label="Ajouter une image ? " clearable>
+
+      <q-input item-aligned v-model="nouveauPlat.imageUrl" label="Ajouter une image ? " clearable>
         <template v-slot:prepend>
           <q-icon name="image" />
         </template>
         <template v-slot:append>
-          <q-avatar v-if="plat.imageUrl">
-            <img :src=plat.imageUrl>
+          <q-avatar v-if="nouveauPlat.imageUrl">
+            <img :src=nouveauPlat.imageUrl>
           </q-avatar>
           <q-skeleton v-else type="QAvatar"  animation="none"/>
         </template>

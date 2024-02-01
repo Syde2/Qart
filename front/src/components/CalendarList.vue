@@ -13,7 +13,6 @@ const splitterModel = ref(50)
 const toggle = ref(false)
 const platMidi =  computed(()=> (midi.value[0]?.plat))
 const platSoir =  computed(()=> (soir.value[0]?.plat))
-const size = computed(()=>plats.value.length )
 
 function addMeal(period ){
   periode.value = period
@@ -37,16 +36,10 @@ function recupererPlats(){
   recupererPlats()
  }
 
- store.$subscribe(( mutation, state )=>{
- } )
-
-
 </script>
 
 <template>
 <div class="q-mx-md">
-  {{ size }}
-
   <q-splitter v-model="splitterModel"  horizontal>
 
     <template v-slot:before>

@@ -1,9 +1,5 @@
 <script setup>
-import {ref} from 'vue'
-import FormAjoutPlat from 'src/components/FormAjoutPlat.vue'
-import FormCard from 'src/components/FormCard.vue';
 
-const alert =ref(false)
 
 </script>
 
