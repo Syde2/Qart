@@ -27,15 +27,24 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
       target: {
-        browser: [ 'es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1' ],
+        browser: [ 'es2020' ],
         node: 'node16'
       },
       env :{
         API : ctx.dev
         ? 'https://127.0.0.1:8002/api'
-        : "https://prod.api.com"
+        : "https://qart.syde2hub.com/api/public/"
 
       },
+      extendViteConf(config) {
+        config.optimizeDeps = {
+          esbuildOptions : {
+            target: 'es2020'
+          }
+
+         }
+      },
+
 
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
