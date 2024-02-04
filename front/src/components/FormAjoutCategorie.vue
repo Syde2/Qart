@@ -3,6 +3,8 @@ import { ref, computed } from 'vue'
 import { api } from 'src/boot/axios';
 import { useCarteStore } from 'stores/carteStore.js'
 import { storeToRefs } from 'pinia';
+import { useQuasar } from 'quasar'
+const $q = useQuasar()
 
 const store = useCarteStore()
 
@@ -22,6 +24,14 @@ function recupererCategories() {
 
 function AjouterCategorie() {
   api.post('/categories', nouvelleCategorie.value)
+  .catch(err => {
+    $q.notify({
+      type:'negative',
+      message: err.response.data['hydra:description'],
+      icon: 'announcement'
+        })
+  } )
+  .finally( ()=>nouvelleCategorie.value = {} )
 }
 
 

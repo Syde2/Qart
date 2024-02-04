@@ -4,8 +4,6 @@ const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (ctx) {
   return {
-
-
     boot: [
       'vcalendar',
       'axios',
@@ -33,7 +31,7 @@ module.exports = configure(function (ctx) {
       env :{
         API : ctx.dev
         ? 'https://127.0.0.1:8002/api'
-        : "https://qart.syde2hub.com/api/public/"
+        : "https://qart.syde2hub.com/api/public/api"
 
       },
       extendViteConf(config) {
@@ -60,10 +58,12 @@ module.exports = configure(function (ctx) {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
-      config: {},
+      config: {
+
+      },
 
       // Quasar plugins
-      plugins: [      'Notify'    ]
+      plugins: ['Notify']
     },
 
     // animations: 'all', // --- includes all animations

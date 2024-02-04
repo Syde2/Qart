@@ -8,7 +8,7 @@ const toggle = ref(false)
 
 <template>
 <q-page class="flex flex-center">
-  <q-dialog square="false" full-width  v-model="toggle">
+  <q-dialog :square="false" full-width  v-model="toggle">
       <div class="flex flex-center">
         <FormCard>
           <FormAjoutCategorie />

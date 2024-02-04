@@ -13,10 +13,14 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 
+
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 #[ApiResource(
     )]
-#[UniqueEntity('nom')]
+#[UniqueEntity(
+    fields: ['nom'],
+    message : "Cette catégorie existe déjà."
+    )]
 class Categorie
 {
     #[ORM\Id]
@@ -52,7 +56,8 @@ class Categorie
 
     public function setNom(string $nom): static
     {
-        $this->nom = $nom;
+        $normalizedNom = strtolower(trim($nom));
+        $this->nom = $normalizedNom;
 
         return $this;
     }
