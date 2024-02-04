@@ -37,13 +37,13 @@ recupererCategories()
 
     <q-form @submit=AjouterPlat class="q-pa-md flex column q-gutter-md ">
 
-      <q-input item-aligned  v-model="nouveauPlat.nom" required label=" Nom de la recette" >
+      <q-input item-aligned  v-model="nouveauPlat.nom" required label=" Nom du Plat" >
         <template v-slot:prepend>
           <q-icon name="restaurant" />
         </template>
       </q-input>
-      <q-select item-aligned v-model='nouveauPlat.categorie' label="Choisir une catégorie" :options=categoriesDisponibles option-label="nom"
-        option-value="id" options-cover  popup-content-class="popupStyle" >
+      <q-select item-aligned v-model='nouveauPlat.categorie' label="Catégorie" :options=categoriesDisponibles option-label="nom"
+        option-value="id" options-cover  popup-content-class="popupStyle text-capitalize text-center">
 
         <template v-slot:prepend>
           <q-icon name="menu_book" />
@@ -51,17 +51,7 @@ recupererCategories()
 
       </q-select>
 
-      <q-input item-aligned v-model="nouveauPlat.imageUrl" label="Ajouter une image ? " clearable>
-        <template v-slot:prepend>
-          <q-icon name="image" />
-        </template>
-        <template v-slot:append>
-          <q-avatar v-if="nouveauPlat.imageUrl">
-            <img :src=nouveauPlat.imageUrl>
-          </q-avatar>
-          <q-skeleton v-else type="QAvatar"  animation="none"/>
-        </template>
-      </q-input>
+
 
       <q-btn type="submit" color="accent"  rounded label="Ajouter" class="q-py-md"  />
 
