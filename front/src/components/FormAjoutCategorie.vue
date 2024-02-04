@@ -9,7 +9,6 @@ const $q = useQuasar()
 const store = useCarteStore()
 
 const nouvelleCategorie = ref({
-
 })
 
 const categoriesDisponibles = ref([{
